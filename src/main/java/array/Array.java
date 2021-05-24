@@ -16,6 +16,14 @@ public class Array<E> {
         size = 0;
     }
 
+    public Array( E[] arr){
+        data = (E[])new Object[arr.length];
+        for (int i = 0; i < arr.length; i++)
+            data[i] = arr[i];
+        size = arr.length;
+
+    }
+
     //无参数构造函数，默认数组容量capacity=10
     public Array(){
         this(10);
@@ -163,5 +171,13 @@ public class Array<E> {
 
     public E getFirst(){
         return get(0);
+    }
+
+    public void swap(int i, int j) {
+        if (i < 0 || i > size || j < 0 || j > size)
+            throw new IllegalArgumentException("Index is Illegal");
+        E t = data[i];
+        data[i] = data[j];
+        data[j] = t;
     }
 }
