@@ -1,4 +1,4 @@
-package sortBasic.SelectionSort;
+package sortBasic;
 
 /**
  * @Author zeroback13
@@ -35,7 +35,7 @@ public class SelectionSortII {
         // 测试排序算法辅助函数
         int N = 20000;
         Integer[] arr = SortTestHelper.generateRandomArray(N, 0, 100000);
-        SortTestHelper.testSort("sortBasic.SelectionSort.SelectionSortII", arr);
+        SortTestHelper.testSort("sortBasic.SelectionSortII", arr);
 
         return;
     }

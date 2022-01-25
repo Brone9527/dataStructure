@@ -1,4 +1,4 @@
-package sortBasic.SelectionSort;
+package sortBasic;
 
 import java.lang.reflect.Method;
 
@@ -17,7 +17,7 @@ public class SortTestHelper {
         assert rangeL <= rangeR;
         Integer[] arr = new Integer[n];
         for(int i = 0;i < n; i++)
-            arr[i] = new Integer((int)Math.random()*(rangeR - rangeL + 1) + rangeL);
+            arr[i] = new Integer((int)(Math.random()*(rangeR - rangeL + 1) + rangeL));
         return arr;
     }
 
@@ -40,6 +40,8 @@ public class SortTestHelper {
                 return false;
         return true;
     }
+
+
 
     // 测试sortClassName所对应的排序算法排序arr数组所得到结果的正确性和算法运行时间
     public static void testSort(String sortClassName,Comparable[] arr){

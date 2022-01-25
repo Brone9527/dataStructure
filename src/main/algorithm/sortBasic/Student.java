@@ -1,4 +1,4 @@
-package sortBasic.SelectionSort;
+package sortBasic;
 
 /**
  * @Author zeroback13
