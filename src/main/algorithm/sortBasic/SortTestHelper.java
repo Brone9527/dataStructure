@@ -61,7 +61,8 @@ public class SortTestHelper {
             sortMethod.invoke(null,params);
             long endTime = System.currentTimeMillis();
 
-            assert  isSorted( arr );
+            assert  isSorted(arr);
+            System.out.println("是否排序成功" + isSorted(arr));
 
             System.out.println(sortClass.getSimpleName() + ":" + (endTime - startTime) + "ms");
 
