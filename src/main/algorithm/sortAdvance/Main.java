@@ -13,7 +13,7 @@ import java.util.Arrays;
  
 public class Main {
     public static void main(String[] args) {
-        int N = 50000;
+        int N = 1000000;
 
         // 测试1 一般测试
         System.out.println("Test for random array, size = " + N + " , random range [0, " + N + "]");
@@ -21,10 +21,13 @@ public class Main {
         Integer[] arr1 = SortTestHelper.generateRandomArray(N, 0, N);
         Integer[] arr2 = Arrays.copyOf(arr1, arr1.length);
         Integer[] arr3 = Arrays.copyOf(arr1, arr1.length);
+        Integer[] arr4 = Arrays.copyOf(arr1, arr1.length);
 
         SortTestHelper.testSort("sortAdvance.MergeSort", arr1);
         SortTestHelper.testSort("sortAdvance.MergeSortI", arr3);
-        SortTestHelper.testSort("sortBasic.InsertionSort", arr2);
+        SortTestHelper.testSort("sortAdvance.MergeSortII", arr4);
+        SortTestHelper.testSort("sortAdvance.MergeSortBU", arr2);
+        //SortTestHelper.testSort("sortBasic.InsertionSort", arr2);
 
         // 测试2 测试近乎有序的数组
         int swapTimes = 10;
@@ -35,10 +38,13 @@ public class Main {
         arr1 = SortTestHelper.generateNearlyOrderArray(N,swapTimes );
         arr2 = Arrays.copyOf(arr1, arr1.length);
         arr3 = Arrays.copyOf(arr1, arr1.length );
+        arr4 = Arrays.copyOf(arr1, arr1.length );
 
         SortTestHelper.testSort("sortAdvance.MergeSort", arr1);
         SortTestHelper.testSort("sortAdvance.MergeSortI", arr3);
-        SortTestHelper.testSort("sortBasic.InsertionSort", arr2);
+        SortTestHelper.testSort("sortAdvance.MergeSortII", arr4);
+        SortTestHelper.testSort("sortAdvance.MergeSortBU", arr2);
+        //SortTestHelper.testSort("sortBasic.InsertionSort", arr2);
 
     }
 }

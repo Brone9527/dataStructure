@@ -40,6 +40,18 @@ public class InsertionSort {
         }
     }
 
+    // 对arr[l...r]的区间使用InsertionSort排序
+    public static void sort(Comparable[] arr,int l,int r){
+        for(int i = l + 1;i < r ;i ++){
+            Comparable e =arr[i];
+            int j = i;
+            for(;j > l &&e.compareTo(arr[i -1]) < 0;j --)
+                arr[j] = arr[j - 1];
+            arr[j] = e;
+        }
+
+    }
+
     public static void swap(Object[] arr,int i,int j){
         Object t = arr[i];
         arr[i] = arr[j];
