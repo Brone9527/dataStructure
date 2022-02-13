@@ -8,39 +8,9 @@ import sortBasic.SortTestHelper;
  * @Date 2022/2/9 22:36
  * @Version 1.0
  */
-public class QuickSortTwoWays {
+public class QuickSortThreeWays {
     // 我们的算法类不允许产生任何实例
-    private QuickSortTwoWays(){}
-
-    // 对arr[l...r]部分进行partition操作
-    // 返回p, 使得arr[l...p-1] < arr[p] ; arr[p+1...r] > arr[p]
-    private static int partition(Comparable[] arr, int l, int r){
-
-        // 随机在arr[l...r]的范围中, 选择一个数值作为标定点pivot
-        swap( arr, l , (int)(Math.random()*(r-l+1))+l );
-
-        Comparable v = arr[l];
-
-        int i = l+1,j = r;
-        while(true){
-            while(i <= r && arr[i].compareTo(v) < 0){
-                i++;
-            }
-
-            while (j >= l + 1 && arr[j].compareTo(v) > 0){
-                j --;
-            }
-
-            if( i > j)
-                break;
-            swap(arr, i , j);
-            i++;
-            j--;
-        }
-        swap(arr, l, j);
-
-        return j;
-    }
+    private QuickSortThreeWays(){}
 
     // 递归使用快速排序,对arr[l...r]的范围进行排序
     private static void sort(Comparable[] arr, int l, int r){
@@ -50,9 +20,29 @@ public class QuickSortTwoWays {
             return;
         }
 
-        int p = partition(arr, l, r);
-        sort(arr, l, p-1 );
-        sort(arr, p+1, r);
+        //随机在arr[l...r]的范围中, 选择一个数值作为标定点pivot
+        swap( arr, l , (int)(Math.random()*(r-l+1))+l );
+        Comparable v = arr[l];
+
+        int lt = l;
+        int gt = r + 1;
+        int i = l + 1;
+        while(i < gt){
+            if(arr[i].compareTo(v) < 0){
+                swap(arr,lt + 1,i);
+                lt ++;
+                i ++;
+            }else if(arr[i].compareTo(v) > 0){
+                swap(arr,gt - 1,i);
+                gt --;
+
+            }else {
+                i++;
+            }
+        }
+        swap(arr,l,lt);
+        sort(arr, l, lt-1 );
+        sort(arr, gt, r);
     }
 
     public static void sort(Comparable[] arr){
@@ -74,7 +64,7 @@ public class QuickSortTwoWays {
         // 可以在1秒之内轻松处理100万数量级的数据
         int N = 1000000;
         Integer[] arr = SortTestHelper.generateRandomArray(N, 0, 100000);
-        SortTestHelper.testSort("sortAdvance.QuickSortTwoWays", arr);
+        SortTestHelper.testSort("sortAdvance.QuickSortThreeWays", arr);
 
         return;
     }
