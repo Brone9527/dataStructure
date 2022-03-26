@@ -9,7 +9,7 @@ import sortBasic.SortTestHelper;
  * @Version 1.0
  */
 public class QuickSortI {
-    // 我们的算法类不允许产生任何实例
+    //我们的算法类不允许产生任何实例
     private QuickSortI(){}
 
     // 对arr[l...r]部分进行partition操作
@@ -35,6 +35,7 @@ public class QuickSortI {
 
     // 递归使用快速排序,对arr[l...r]的范围进行排序
     private static void sort(Comparable[] arr, int l, int r){
+
         // 对于小规模数组, 使用插入排序
         if( r - l <= 15 ){
             InsertionSort.sort(arr, l, r);
